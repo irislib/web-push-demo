@@ -4,6 +4,7 @@ const webpush = require('web-push');
 const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
 const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
 const contactEmail = process.env.CONTACT_EMAIL || 'mailto:user@example.com';
+const port = process.env.PORT || 3000;
 
 webpush.setVapidDetails(contactEmail, publicVapidKey, privateVapidKey);
 
@@ -25,4 +26,4 @@ app.post('/subscribe', (req, res) => {
 
 app.use(require('express-static')('./'));
 
-app.listen(3000);
+app.listen(port);
