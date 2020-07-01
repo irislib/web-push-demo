@@ -1,5 +1,6 @@
 const express = require('express');
 const webpush = require('web-push');
+const cors = require('cors');
 
 const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
 const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
@@ -9,6 +10,8 @@ const port = process.env.PORT || 3000;
 webpush.setVapidDetails(contactEmail, publicVapidKey, privateVapidKey);
 
 const app = express();
+app.use(cors());
+app.options('*', cors());
 
 app.use(require('body-parser').json());
 
@@ -25,6 +28,5 @@ app.post('/subscribe', (req, res) => {
 });
 
 app.use(require('express-static')('./'));
-app.use(require('cors')());
 
 app.listen(port);
