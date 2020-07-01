@@ -25,5 +25,6 @@ app.post('/subscribe', (req, res) => {
 });
 
 app.use(require('express-static')('./'));
+app.use(require('cors')());
 
 app.listen(port);
