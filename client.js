@@ -1,4 +1,4 @@
-const publicVapidKey = 'BOynOrGhgkj8Bfk4hsFENAQYbnqqLSigUUkCNaBsAmNuH6U9EWywR1JIdxBVQOPDbIuTaj0tVAQbczNLkC5zftw';
+const publicVapidKey = 'BMqSvZArOIdn7vGkYplSpkZ70-Qt8nhYbey26WVa3LF3SwzblSzm3n3HHycpNkAKVq7MCkrzFuTFs_en7Y_J2MI';
 
 if ('serviceWorker' in navigator) {
   console.log('Registering service worker');
@@ -23,7 +23,7 @@ async function run() {
   console.log('Sending push');
   await fetch('/subscribe', {
     method: 'POST',
-    body: JSON.stringify(subscription),
+    body: JSON.stringify({subscription, payload: {title:'test'}}),
     headers: {
       'content-type': 'application/json'
     }
