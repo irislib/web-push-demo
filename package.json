@@ -10,5 +10,8 @@
     "express": "4.17.1",
     "express-static": "1.2.6",
     "web-push": "3.4.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0"
   }
 }
